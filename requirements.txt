@@ -4,9 +4,11 @@ bcrypt==3.2.2
 certifi==2021.10.8
 cffi==1.15.0
 charset-normalizer==2.0.12
+crispy-bootstrap5==0.6
 cryptography==37.0.1
 distro==1.7.0
 Django==4.0.4
+django-crispy-forms==1.14.0
 docker==5.0.3
 docker-compose==1.29.2
 dockerpty==0.4.1
