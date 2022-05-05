@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Ofertas</h2>
+{% for o in oferta %}
+<div class="row">
+	<div class="col">
+		<h3>{{ o.title }}</h3>
+		
+	</div>
+</div>
+{% endfor %}
+
+
+{% endblock %}

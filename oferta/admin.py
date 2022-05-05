@@ -1,3 +1,5 @@
 from django.contrib import admin
+from oferta.models import Oferta
 
-# Register your models here.
+
+admin.site.register(Oferta)
