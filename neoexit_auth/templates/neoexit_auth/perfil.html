@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% load neoexit_extras %}
+{% load oferta_extras %}
 {% block title %}Perfil Usuário{% endblock %}
 {% block content %}
 {% row %}
     {% col %}
         <p>Usuário: {{ request.user }}.</p>
-        <p><a href="{% url "sair" %}">Sair</a></p>
+        <!--<p><a href="{% url "sair" %}">Sair</a></p>-->
     {% endcol %}
 {% endrow %}
 {% endblock content %}
