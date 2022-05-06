@@ -4,7 +4,6 @@ from django.utils.html import format_html
 from oferta.models import Oferta
 
 
-user_model = get_user_model()
 register = template.Library()
 
 @register.simple_tag

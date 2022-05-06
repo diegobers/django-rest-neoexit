@@ -1,15 +1,16 @@
 {% extends "base.html" %}
+{% load oferta_extras %}
 {% block content %}
 
 <h2>Ofertas</h2>
 {% for o in oferta %}
-<div class="row">
-	<div class="col">
-		<h3>{{ o.title }}</h3>
-		
-	</div>
-</div>
+	{% row %}
+		{% col %}
+			<h3>{{ o.title }}</h3>
+			<a href="{% url 'oferta-detalhes' o.slug %}">Detalhes</a>
+			
+		{% endcol %}
+	{% endrow %}
 {% endfor %}
-
 
 {% endblock %}

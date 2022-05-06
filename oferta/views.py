@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from oferta.models import Oferta
 
@@ -9,7 +9,7 @@ def index(request):
     return render(request, "oferta/index.html", {"oferta": ofer})
 
 
-def post_detail(request, slug):
+def oferta_detail(request, slug):
     ofer = get_object_or_404(Oferta, slug=slug)
     
     return render(request, "oferta/oferta-detalhe.html", {"oferta": ofer}) #, "comment_form": comment_form})
