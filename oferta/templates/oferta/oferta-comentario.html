@@ -1,0 +1,32 @@
+{% load oferta_extras crispy_forms_tags %}
+
+{% row "container-fluid" %}
+<h4>Comentários...</h4>
+{% for comentario in oferta.comentarios.all %}
+	{% row "border-top pt-2" %}
+		{% col %}
+			<h5>{{ comentario.creator }} em: {{ comentario.created_at|date:"M, d Y" }}</h5>
+		{% endcol %}
+	{% endrow %}
+	{% row "border-bottom" %}
+		{% col %}
+			<p>{{ comentario.content }}</p>
+		{% endcol %}
+	{% endrow %}
+	{% empty %}
+		{% row "border-top border-bottom" %}
+			{% col %}
+				<p>Sem comentários ainda!</p>
+			{% endcol %}
+		{% endrow %}
+{% endfor %}
+
+{% if request.user.is_active %}
+	{% row "mt-4" %}
+		{% col %}
+			<h4>Comentar</h4>
+			{%  crispy comentario_form %}	
+		{% endcol %}
+	{% endrow %}
+{% endif %}
+{% endrow %}
