@@ -6,9 +6,11 @@ from oferta.forms import ComentarioForm
 
 
 def index(request):
-    ofer = Oferta.objects.all()
-    #ofer = Oferta.objects.filter(published_at__lte=timezone.now()).select_related("author")
+    # filter(created_at__lte=timezone.now()).select_related("author").only/.defer("title")
+    ofer = Oferta.objects.filter(created_at__lte=timezone.now()).select_related("author")
+    
     #logger.debug("%d ofertas", len(ofer))
+
     return render(request, "oferta/index.html", {"oferta": ofer})
 
 
