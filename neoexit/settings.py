@@ -70,8 +70,6 @@ class Dev(Configuration):
     # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
     # postgres://USER:PASSWORD@HOST:PORT/NAME
 
-    #DATABASES['default'] = dj_database_url.config(default='postgres://postgres:postgres@db:5432/postgres')
-
     DATABASES = {
         'default': dj_database_url.config(default='postgres://postgres:postgres@db:5432/postgres'),
         #'alternative': dj_database_url.config("ALTERNATIVE_DATABASE_URL",default=f"sqlite:///{BASE_DIR}/alternative_db.sqlite3",),
@@ -118,6 +116,15 @@ class Dev(Configuration):
     # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
     DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+    # Default hash passwords django[argon2]
+
+    PASSWORD_HASHERS = [
+        'django.contrib.auth.hashers.Argon2PasswordHasher',
+        'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+        'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+        'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    ]
 
 
 class Prod(Dev):
