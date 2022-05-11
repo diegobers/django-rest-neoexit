@@ -11,7 +11,16 @@
 
 {% row %}
 	{% col %}
-		 {% include "oferta/oferta-comentario.html" %}
+		{% include "oferta/oferta-comentario.html" %}
+        {% if oferta.author.perfil %}
+            {% row %}
+                {% col %}
+                    <h4>Bio autor: </h4>
+                    <p>{{ oferta.author.perfil.bio }}</p>
+                {% endcol %}
+            {% endrow %}
+        {% endif %}
+
 	{% endcol %}
 {% endrow %}
 

@@ -65,9 +65,7 @@ class Dev(Configuration):
 
     WSGI_APPLICATION = 'neoexit.wsgi.application'
 
-
     # Database
-    # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
     # postgres://USER:PASSWORD@HOST:PORT/NAME
 
     DATABASES = {
@@ -75,9 +73,7 @@ class Dev(Configuration):
         #'alternative': dj_database_url.config("ALTERNATIVE_DATABASE_URL",default=f"sqlite:///{BASE_DIR}/alternative_db.sqlite3",),
     }
 
-
     # Password validation
-    # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
     AUTH_PASSWORD_VALIDATORS = [
         {
@@ -94,9 +90,7 @@ class Dev(Configuration):
         },
     ]
 
-
     # Internationalization
-    # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
     LANGUAGE_CODE = 'pt-BR'
 
@@ -106,14 +100,11 @@ class Dev(Configuration):
 
     USE_TZ = True
 
-
     # Static files (CSS, JavaScript, Images)
-    # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
     STATIC_URL = 'static/'
 
     # Default primary key field type
-    # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
     DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

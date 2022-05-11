@@ -30,17 +30,16 @@ class NeoexitUserManager(UserManager):
         return self._create_user(email, password, **extra_fields)
 
 class User(AbstractUser):
-    pass
-    #username = None
-    #email = models.EmailField(
-    #    _("email address"),
-    #    unique=True,
-    #)
+    username = None
+    email = models.EmailField(
+        _("email address"),
+        unique=True,
+    )
 
-    #objects = NeoexitUserManager()
+    objects = NeoexitUserManager()
 
-    #USERNAME_FIELD = "email"
-    #REQUIRED_FIELDS = []
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
 
-    #def __str__(self):
-    #    return self.email
+    def __str__(self):
+        return self.email
