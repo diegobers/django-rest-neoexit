@@ -19,9 +19,10 @@ class Dev(Configuration):
     AUTH_USER_MODEL = 'neoexit_auth.User'
     CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
     CRISPY_TEMPLATE_PACK = 'bootstrap5'
+    ACCOUNT_ACTIVATION_DAYS = 7
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
     # Application definition
-
     INSTALLED_APPS = [
         'neoexit_auth',
         'django.contrib.admin',
@@ -67,14 +68,12 @@ class Dev(Configuration):
 
     # Database
     # postgres://USER:PASSWORD@HOST:PORT/NAME
-
     DATABASES = {
         'default': dj_database_url.config(default='postgres://postgres:postgres@db:5432/postgres'),
         #'alternative': dj_database_url.config("ALTERNATIVE_DATABASE_URL",default=f"sqlite:///{BASE_DIR}/alternative_db.sqlite3",),
     }
 
     # Password validation
-
     AUTH_PASSWORD_VALIDATORS = [
         {
             'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -91,25 +90,21 @@ class Dev(Configuration):
     ]
 
     # Internationalization
-
     LANGUAGE_CODE = 'pt-BR'
 
-    TIME_ZONE = values.Value("America/Sao_Paulo")
+    TIME_ZONE = values.Value('America/Sao_Paulo')
 
     USE_I18N = True
 
     USE_TZ = True
 
     # Static files (CSS, JavaScript, Images)
-
     STATIC_URL = 'static/'
 
     # Default primary key field type
-
     DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
     # Default hash passwords django[argon2]
-
     PASSWORD_HASHERS = [
         'django.contrib.auth.hashers.Argon2PasswordHasher',
         'django.contrib.auth.hashers.PBKDF2PasswordHasher',
