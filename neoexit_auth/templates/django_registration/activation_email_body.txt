@@ -1,3 +1,5 @@
+Olá,
+
 
 Para concluir seu cadastro ative sua conta em até {{ expiration_days }} dias.
 
