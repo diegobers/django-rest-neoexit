@@ -14,4 +14,4 @@ class ComentarioForm(forms.ModelForm):
         super(ComentarioForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         
-        self.helper.add_input(Submit('submit', 'Submit'))
+        self.helper.add_input(Submit('submit', 'Comentar'))
