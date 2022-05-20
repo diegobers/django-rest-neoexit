@@ -1,1 +1,1 @@
-Activate your Blango account! You have {{ expiration_days }} days!
+Ative sua conta! Vocẽ tem até {{ expiration_days }} dias!!!
