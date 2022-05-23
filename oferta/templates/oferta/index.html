@@ -8,12 +8,12 @@
         {% for o in oferta %}  
         {% col 'col-sm-4 col-md-4 col-lg-4 col-xl-4 my-2' %}
         
-          <div class="card w-100 mx-auto shadow" style="width: 16rem;" href="{% url 'oferta-detalhes' o.slug %}">
+          <div class="card w-100 mx-auto shadow" style="width: 16rem;" href="{% url 'detalhes' o.slug %}">
             <img src="{{o.img.url}}" class="card-img-top" alt="...">
             <div class="card-body text-center">
               <h5 class="card-title">{{o.title}}</h5>
               <p class="card-text">{{o.content}}</p>
-              <a href="{% url 'oferta-detalhes' o.slug %}" class="btn btn-secondary">Detalhes</a>
+              <a href="{% url 'detalhes' o.slug %}" class="btn btn-secondary">Detalhes</a>
             </div>
           </div>  
         {% endcol %}
@@ -21,5 +21,6 @@
     {% endrow %} 
 </div>
 <hr>
+ 
 
 {% endblock %}

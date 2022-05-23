@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Deletar Ofertas{% endblock title %}
+
+{% block content %}
+<div class='container mx-auto'> 
+  <div class='row'>
+    <div class='mx-auto col-sm col-md col-lg col-xl'>
+      <div class='card card-body my-5 w-75 mx-auto shadow'>  
+        <h4 class='font-weight-bold'>Detalhe: {{oferta.title}}</h4> 
+        <form method='POST' action=''>
+          {% csrf_token %}   
+          <div class="table-responsive"> 
+            <table class='table text-center table-sm table-md table-lg table-xl'> 
+              <thead> 
+                <tr> 
+                  <th>Descrição</th>
+                  <th>Content</th> 
+                </tr>  
+              </thead> 
+              <tbody> 
+                <tr>
+                  <td>{{oferta.title}}</td>
+                  <td>{{oferta.content}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class='font-weight-bold font-italic text-center'>Confirmar?</h6>
+          <hr>
+          <div class='text-center'>
+            <button class='btn btn-danger' type='submit'>Deletar</button>
+          </div>
+        </form>  
+      </div>
+    </div>
+  </div>  
+</div>   
+{% endblock %}

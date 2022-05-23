@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load oferta_extras %}
+
+{% block content %}
+
+<div class='container mx-auto'> 
+    {% row 'mt-2' %}
+    <div class='my-4 mx-auto col-sm col-md col-lg col-xl'> 
+        <div class='card card-body w-100 mx-auto shadow'>
+            <img src="{{oferta.img.url}}" class="card-img-top mx-auto img-fluid" style="width:350px;height:300px;" alt=''> 
+            <div class="table-responsive text-center"> 
+                <table class='table table-sm table-md table-lg table-xl'> 
+                    <thead>  
+                        <tr>
+                          <th>Descrição</th>
+                        </tr>
+                    </thead> 
+                    <tbody> 
+                        <tr>
+                          <td>{{oferta}}</td>
+                        </tr> 
+                    </tbody>  
+                </table> 
+                {% col %}
+                    {{ oferta.content|safe }}
+                {% endcol %}
+            </div>  
+        </div>   
+    </div>  
+    {% endrow %}
+</div>
+
+{% row 'mt-5' %}
+    {% col %}
+        
+        {% include "oferta/oferta-comentario.html" %}
+        
+        <!--
+        {% if oferta.author.perfil %}
+            {% row %}
+                {% col %}
+                    <h4>Bio autor: </h4>
+                    <p>{{ oferta.author.perfil.bio }}</p>
+                {% endcol %}
+            {% endrow %}
+        {% endif %}
+        -->
+
+    {% endcol %}
+{% endrow %}
+
+
+{% endblock %} 

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Registrar Ofertas{% endblock title %}
+
+{% block content %} 
+<div class='container mx-auto'> 
+  <div class='row'>
+    <div class='col-sm col-md col-lg col-xl'>
+      <div class='card card-body my-5 w-100 mx-auto shadow'>  
+        <h4 class='font-weight-bold text-center font-italic'>Registrar Oferta</h4> 
+        <form method='POST' action='' enctype='multipart/form-data'>
+            {% csrf_token %}  
+            {{form|crispy}} 
+            <div class='text-center'>
+              <button class='btn btn-secondary' type='submit'>Criar Oferta</button>
+            </div>
+        </form> 
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -12,42 +12,40 @@
     <title>{% block title %}Bem Vindo!{% endblock %}</title>  
   </head>
   <body>
-
-
-
-
     <nav class="navbar navbar-expand-sm navbar-light bg-light py-3 border-bottom">
-      <div class="container">
-        <a class="navbar-brand" href="{% url 'index' %}"><span class='font-weight-bold h3'>NeoExit</span></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">  
-          <div class="d-flex">
-            <ul class="navbar-nav ml-auto">
-              {% if request.user.is_active %}
-              <li class='nav-item'>
-                <a class="nav-link mr-4 lead" href="{% url 'profile' %}">Perfil</a>
-              </li>  
-              <li class='nav-item'>
-                <a class="nav-link mr-4 lead" href="{% url 'logout' %}">Sair</a>                
-              </li>
-              {% else %}
-              <li class='nav-item mr-4 lead'>
-                <a class="nav-link" href="{% url 'register' %}">Registrar</a>
-              </li>
-              <li class='nav-item mr-4 lead'>
-                <a class="nav-link" href="{% url 'login' %}">Entrar</a>
-              </li>
-              {% endif %}
-              
-            </ul>
-          </div>          
         
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}"><span class='font-weight-bold h3'>NeoExit</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse text-primary" id="navbarSupportedContent">  
+                <div class="d-flex">
+                    <ul class="navbar-nav ml-auto">
+                        {% if request.user.is_active %} 
+                            <li class='nav-item'>
+                                <a class="nav-link mr-4 lead" href="{% url 'profile' %}">Perfil</a>
+                            </li>  
+                            <li class='nav-item'>
+                                <a class="nav-link mr-4 lead" href="{% url 'oferta' %}">Ofertas</a>   
+                            </li>
+                            <li class='nav-item'>
+                                <a class="nav-link mr-4 lead" href="{% url 'logout' %}">Sair</a>   
+                            </li> 
+                        {% else %}
+                            <li class='nav-item mr-4 lead'>
+                                <a class="nav-link" href="{% url 'register' %}">Registrar</a>
+                            </li>
+                            <li class='nav-item mr-4 lead'>
+                                <a class="nav-link" href="{% url 'login' %}">Entrar</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>                  
+            </div>
         </div>
 
-      </div>
     </nav>
 
 

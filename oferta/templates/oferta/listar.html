@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}Todas Ofertas{% endblock title %}
+
+{% block content %}
+ 
+<div class='container mx-auto'>
+  <div class='row'>
+    <div class='my-4 mx-auto col-sm col-md col-lg col-xl'>
+      <div class='card card-body my-5 w-75 mx-auto shadow'> 
+        <h4 class='font-weight-bold text-center font-italic'>Todas Ofertas</h4>    
+        <hr>
+        <div class="table-responsive"> 
+          <table class='table table-sm table-md table-lg table-xl'> 
+            <thead>
+              <tr>
+                <th>Descrição</th>
+                <th>Content</th> 
+
+                {% if request.user.is_staff %}
+                  <th></th>
+                  <th></th>
+                {% endif %}
+              </tr> 
+            </thead>  
+            <tbody>
+              {% for o in oferta %}
+              <tr>
+                <td><a href="{% url 'detalhes' o.slug %}">{{o.title}}</a></td>
+                <td>{{o.content}}</td> 
+
+                {% if request.user.is_staff %}
+                  <td><a href="{% url 'alterar' o.slug %}">Alterar</a></td>
+                  <td><a href="{% url 'deletar' o.slug %}">Deletar</a></td>
+                {% endif %}
+              </tr>
+              {% empty %}
+                <h3>Lista vazia!</h3>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>  
+        {% if request.user.is_staff %}
+        <hr>
+          <a class='btn btn-secondary mx-auto w-25' href="{% url 'registrar' %}">Criar</a>
+        {% endif %} 
+      </div> 
+    </div>    
+  </div>  
+</div>  
+
+
+{% endblock  %}

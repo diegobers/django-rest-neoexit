@@ -23,12 +23,15 @@
 		{% endfor %}
 	{% endcol %} 
 
+
 	{% if request.user.is_active %}
 		{% row "mt-4" %}
 			{% col 'col-sm-10 col-md-10 col-lg-10 col-xl-10 mx-auto' %}
-				{%  crispy comentario_form %}	
+				{%  crispy form %}	
 			{% endcol %}
 		{% endrow %}
 	{% endif %}
+
+
 {% endrow %}
 </div>
