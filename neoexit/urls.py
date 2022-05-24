@@ -4,7 +4,7 @@ from django_registration.backends.activation.views import RegistrationView
 
 import neoexit_auth.views
 from neoexit_auth.forms import NeoExitRegistrationForm
-from oferta.views import index, InvestimentoListView, InvestimentoView, OfertaList, OfertaCreate, OfertaDetail, OfertaUpdate, OfertaDelete
+from oferta.views import index, InvestimentoView, OfertaList, OfertaCreate, OfertaDetail, OfertaUpdate, OfertaDelete
 
 
 urlpatterns = [
@@ -24,7 +24,7 @@ urlpatterns = [
     
     path('investir/<slug>/', InvestimentoView.as_view(), name='oferta-detalhe'),  
 
-    path('investimentos/', InvestimentoListView.as_view(), name='list-investimento'),  
+    #path('investimentos/', InvestimentoListView.as_view(), name='list-investimento'),  
     
 
     
