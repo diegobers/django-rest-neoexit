@@ -3,24 +3,28 @@
 {% block content %}
  
 <div class='container mt-5'> 
-	
 	{% row %}
         {% for o in oferta %}  
         {% col 'col-sm-4 col-md-4 col-lg-4 col-xl-4 my-2' %}
-        
-          <div class="card w-100 mx-auto shadow" style="width: 16rem;" href="{% url 'detalhes' o.slug %}">
-            <img src="{{o.img.url}}" class="card-img-top" alt="...">
-            <div class="card-body text-center">
-              <h5 class="card-title">{{o.title}}</h5>
-              <p class="card-text">{{o.content}}</p>
-              <a href="{% url 'detalhes' o.slug %}" class="btn btn-secondary">Detalhes</a>
-            </div>
+            <div class="card w-100 mx-auto shadow" style="width: 16rem;" href="{% url 'detalhes' o.slug %}">
+                <img src="{{o.img.url}}" class="card-img-top" alt="...">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{o.title}}</h5>
+                    <p class="card-text">{{o.content}}</p>
+                    <p class="card-text">{{o.date_initial}}</p>
+                    <p class="card-text">{{o.date_end}}</p>
+                    <p class="card-text">{{o.value_total}}</p>
+                    <p class="card-text">{{o.status}}</p>
+                    <div class="progress my-2">
+                        <div class="bg-secondary progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <a href="{% url 'detalhes' o.slug %}" class="btn btn-secondary">Detalhes</a>
+                </div>
           </div>  
         {% endcol %}
         {% endfor %}   
     {% endrow %} 
 </div>
 <hr>
- 
 
 {% endblock %}

@@ -7,7 +7,7 @@
 		{% for comentario in oferta.comentarios.all %}
 			{% row "border-top pt-2" %}
 				{% col %}
-					<h5>{{ comentario.creator }} em: {{ comentario.created_at|date:"M, d Y" }}</h5>
+					<h5>{{ comentario.creator_comment }} em: {{ comentario.created_at|date:"M, d Y" }}</h5>
 				{% endcol %}
 			{% endrow %}
 			{% row "border-bottom" %}
