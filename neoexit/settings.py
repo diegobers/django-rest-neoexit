@@ -79,7 +79,7 @@ class Dev(Configuration):
     # Database
     # postgres://USER:PASSWORD@HOST:PORT/NAME
     DATABASES = {
-        'default': dj_database_url.config(default='postgres://postgres:postgres@db:5432/postgres'),
+        'default': dj_database_url.config(default='postgres://postgres:postgres@localhost:5432/neoexit'),
         #'alternative': dj_database_url.config("ALTERNATIVE_DATABASE_URL",default=f"sqlite:///{BASE_DIR}/alternative_db.sqlite3",),
     }
 

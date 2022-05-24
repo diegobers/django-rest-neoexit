@@ -58,7 +58,7 @@ class OfertaDetail(FormMixin, DetailView):
         if comentario_form.is_valid():
             comentario = comentario_form.save(commit=False)
             comentario.content_object = self.object
-            comentario.creator = self.request.user
+            comentario.creator_comment = self.request.user
             comentario.save()
             return redirect(request.path_info)
         else:
@@ -76,7 +76,7 @@ class InvestimentoView(FormMixin, DetailView):
         if investimento_form.is_valid():
             investimento = investimento_form.save(commit=False)
             investimento.content_object = self.object
-            investimento.creator = self.request.user
+            investimento.creator_invest = self.request.user
             investimento.save()
             return redirect(request.path_info)
         else:

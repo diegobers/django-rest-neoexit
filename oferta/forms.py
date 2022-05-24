@@ -19,7 +19,7 @@ class ComentarioForm(forms.ModelForm):
 class InvestimentoForm(forms.ModelForm):
     class Meta:
         model = Investimento
-        fields = ["value"]
+        fields = ["value", "cota_qtd"]
 
     def __init__(self, *args, **kwargs):
         super(InvestimentoForm, self).__init__(*args, **kwargs)
