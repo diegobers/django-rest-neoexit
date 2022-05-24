@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.urls import reverse_lazy, reverse
 
-from oferta.models import Oferta
-from oferta.forms import ComentarioForm
+from oferta.models import Oferta, Investimento
+from oferta.forms import ComentarioForm, InvestimentoForm
 from django.views.generic.edit import CreateView, DeleteView, UpdateView, FormMixin
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
@@ -15,7 +15,7 @@ def index(request):
     #logger.debug("%d ofertas", len(ofer))
 
     return render(request, "oferta/index.html", {"oferta": ofer})
-    
+
 class OfertaList(ListView):
     model = Oferta
     template_name = 'oferta/listar.html'
@@ -63,3 +63,28 @@ class OfertaDetail(FormMixin, DetailView):
             return redirect(request.path_info)
         else:
             return self.form_invalid(comentario_form)
+
+class InvestimentoView(FormMixin, DetailView):
+    model = Oferta
+    template_name = 'oferta/oferta-detalhe.html'
+    #context_object_name = 'oferta'
+    form_class = InvestimentoForm
+
+    def post(self, request, *args, **kwargs):
+        investimento_form = self.get_form()
+        self.object = self.get_object()
+        if investimento_form.is_valid():
+            investimento = investimento_form.save(commit=False)
+            investimento.content_object = self.object
+            investimento.creator = self.request.user
+            investimento.save()
+            return redirect(request.path_info)
+        else:
+            return self.form_invalid(investimento_form)
+
+
+class InvestimentoListView(ListView):
+    #model = Investimento
+    queryset = Investimento.objects.all()
+    template_name = 'oferta/listar-investimento.html'
+    context_object_name = 'investimento'

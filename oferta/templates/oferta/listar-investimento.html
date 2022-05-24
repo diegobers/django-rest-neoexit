@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Todos Investimentos{% endblock title %}
+
+{% block content %}
+ 
+<div class='container mx-auto'>
+  <div class='row'>
+    <div class='my-4 mx-auto col-sm col-md col-lg col-xl'>
+      <div class='card card-body my-5 w-75 mx-auto shadow'> 
+        <h4 class='font-weight-bold text-center font-italic'> Investimentos</h4>    
+        <hr>
+        <div class="table-responsive"> 
+          <table class='table table-sm table-md table-lg table-xl'> 
+            <thead>
+              <tr>
+                <th>Descrição</th>
+                <th>Content</th> 
+ 
+              </tr> 
+            </thead>  
+            <tbody>
+              {% for i in investimento %}
+              <tr>
+                <td>{{i.creator}}</td>
+                <td>{{i.value}}</td> 
+
+              </tr>
+              {% empty %}
+                <h3>Lista vazia!</h3>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>   
+      </div> 
+    </div>    
+  </div>  
+</div>  
+
+
+{% endblock  %}

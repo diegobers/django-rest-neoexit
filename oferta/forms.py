@@ -2,7 +2,7 @@ from django import forms
 from crispy_forms.layout import Submit
 from crispy_forms.helper import FormHelper
 
-from .models import Comentario
+from .models import Comentario, Investimento
 
 
 class ComentarioForm(forms.ModelForm):
@@ -15,3 +15,14 @@ class ComentarioForm(forms.ModelForm):
         self.helper = FormHelper()
         
         self.helper.add_input(Submit('submit', 'Comentar'))
+
+class InvestimentoForm(forms.ModelForm):
+    class Meta:
+        model = Investimento
+        fields = ["value"]
+
+    def __init__(self, *args, **kwargs):
+        super(InvestimentoForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        
+        self.helper.add_input(Submit('submit', 'Investir'))

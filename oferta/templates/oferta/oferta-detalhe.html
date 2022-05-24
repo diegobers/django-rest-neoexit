@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load oferta_extras %}
+{% load oferta_extras crispy_forms_tags %}
 
 {% block content %}
 
@@ -12,7 +12,7 @@
                 <table class='table table-sm table-md table-lg table-xl'> 
                     <thead>  
                         <tr>
-                          <th>Descrição</th>
+                          <th>Descrição Oferta</th>
                         </tr>
                     </thead> 
                     <tbody> 
@@ -30,25 +30,12 @@
     {% endrow %}
 </div>
 
-{% row 'mt-5' %}
-    {% col %}
-        
-        {% include "oferta/oferta-comentario.html" %}
-        
-        <!--
-        {% if oferta.author.perfil %}
-            {% row %}
-                {% col %}
-                    <h4>Bio autor: </h4>
-                    <p>{{ oferta.author.perfil.bio }}</p>
-                {% endcol %}
-            {% endrow %}
-        {% endif %}
-        -->
-
-    {% endcol %}
-{% endrow %}
-
-
+    {% if request.user.is_active %}
+        {% row "mt-4" %}
+            {% col 'col-sm-10 col-md-10 col-lg-10 col-xl-10 mx-auto' %}
+                {%  crispy form %}  
+            {% endcol %}
+        {% endrow %}
+    {% endif %}
 
 {% endblock %} 
