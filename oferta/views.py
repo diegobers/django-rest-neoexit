@@ -81,10 +81,4 @@ class InvestimentoView(FormMixin, DetailView):
             return redirect(request.path_info)
         else:
             return self.form_invalid(investimento_form)
-
-
-class InvestimentoListView(ListView):
-    #model = Investimento
-    queryset = Investimento.objects.all()
-    template_name = 'oferta/listar-investimento.html'
-    context_object_name = 'investimento'
+ 
